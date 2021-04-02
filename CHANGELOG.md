@@ -14,3 +14,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 - Hard-coded Spanish and English text
+
+## [1.1.0] - 2021-04-02
+### Added
+- New commands: !coin, !moneda 
+- Cogs: games,writing,stats
+- servir dir
+- readme.md, LICENSE
+
+### Changed
+- Cogs dir structure
+
+### Removed
+- Default getting started dir structure
