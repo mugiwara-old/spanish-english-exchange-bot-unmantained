@@ -8,13 +8,13 @@ class Games(commands.Cog):
 
   @commands.command(brief="Either Heads or Tails")
   async def coin(self, ctx):
-    n = random.randint(0, 1)
-    await ctx.send("Heads" if n == 1 else "Tails")
+    n = random.choice(("Heads", "Tails"))
+    await ctx.send(n)
 
   @commands.command(brief="¿Cara o cruz?")
   async def moneda(self, ctx):
-    n = random.randint(0, 1)
-    await ctx.send("Cara" if n == 1 else "Cruz")
+    n = random.choice(("Cara", "Cruz"))
+    await ctx.send(n)
 
 def setup(bot):
   bot.add_cog(Games(bot))
