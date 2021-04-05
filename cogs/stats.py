@@ -13,11 +13,11 @@ class Stats(commands.Cog):
     total = 0
     
     for role in roles:
-      total += len(ctx.guild.get_roles(role).members)
+      total += len(ctx.guild.get_role(role).members)
 
     channel = self.bot.get_channel(827620759487643678)
     await channel.edit(name = f"🦊┃{total}")
-    await ctx.send(sum(total))
+    await ctx.send(total)
     
 
   @commands.command()
@@ -27,11 +27,11 @@ class Stats(commands.Cog):
     total = 0
     
     for role in roles:
-      total += len(ctx.guild.get_roles(role).member)
+      total += len(ctx.guild.get_role(role).members)
       
     channel = self.bot.get_channel(827621040607461446)
     await channel.edit(name = f"🐬┃{total}")
-    await ctx.send(sum(total))
+    await ctx.send(total)
 
 def setup(bot):
   bot.add_cog(Stats(bot))
