@@ -8,28 +8,18 @@ class Stats(commands.Cog):
 
   @commands.command()
   async def cespr(self, ctx):
-    roles = (792508900829298688, 826521461182693466, 826532026513227797,
-             826532138017882192, 826532227029663764, 826532349792747541, 826532406135357452)
-    total = 0
-    
-    for role in roles:
-      total += len(ctx.guild.get_role(role).members)
-
     channel = self.bot.get_channel(827620759487643678)
+    total = len(ctx.guild.get_role(792508900829298688).members)
+    
     await channel.edit(name = f"🦊┃{total}")
     await ctx.send(total)
     
 
   @commands.command()
   async def cengr(self, ctx):
-    roles = (792503398036406282, 826521558037561454, 826532629775384626,
-            826532809886793738, 826532912013770802, 826533069649477654, 826533128423473173)
-    total = 0
-    
-    for role in roles:
-      total += len(ctx.guild.get_role(role).members)
-      
     channel = self.bot.get_channel(827621040607461446)
+    total = len(ctx.guild.get_role(792503398036406282).members)
+    
     await channel.edit(name = f"🐬┃{total}")
     await ctx.send(total)
 
