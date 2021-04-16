@@ -1,37 +1,42 @@
-import discord
 from discord.ext import commands
+from guild.model import Guild
+
+see_guild = Guild
 
 class Stats(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
     
-
   @commands.command()
   async def cespr(self, ctx):
-    roles = (792508900829298688, 826521461182693466, 826532026513227797,
-             826532138017882192, 826532227029663764, 826532349792747541, 826532406135357452)
-    total = 0
-    
-    for role in roles:
-      total += len(ctx.guild.get_role(role).members)
+    if not (ctx.channel.id == 814455624006893609 or ctx.channel.id == 827612879963291658):
+      await ctx.channel.send("Sorry, you can't use this command in this channel!")
+      return
+
+    see_guild_es_roles = see_guild.roles("es")
+    total_role_members = len(ctx.guild.get_role(see_guild_es_roles['ns']).members)
 
     channel = self.bot.get_channel(827620759487643678)
-    await channel.edit(name = f"🦊┃{total}")
-    await ctx.send(total)
+    msg = "We are %s 🦊 Spanish native speakers" % total_role_members
+    
+    await channel.edit(name = f"🦊┃{total_role_members}")
+    await ctx.send(msg)
     
 
   @commands.command()
   async def cengr(self, ctx):
-    roles = (792503398036406282, 826521558037561454, 826532629775384626,
-            826532809886793738, 826532912013770802, 826533069649477654, 826533128423473173)
-    total = 0
-    
-    for role in roles:
-      total += len(ctx.guild.get_role(role).members)
+    if not (ctx.channel.id == 814455624006893609 or ctx.channel.id == 827612858040582184):
+      await ctx.channel.send("Sorry, you can't use this command in this channel!")
+      return
+
+    see_guild_en_roles = see_guild.roles("en")
+    total_role_members = len(ctx.guild.get_role(see_guild_en_roles['ns']).members)
       
     channel = self.bot.get_channel(827621040607461446)
-    await channel.edit(name = f"🐬┃{total}")
-    await ctx.send(total)
+    msg = "We are %s 🐬 English native speakers" % total_role_members
+
+    await channel.edit(name = f"🐬┃{total_role_members}")
+    await ctx.send(msg)
 
 def setup(bot):
   bot.add_cog(Stats(bot))
