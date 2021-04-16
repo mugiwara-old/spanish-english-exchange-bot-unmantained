@@ -50,3 +50,18 @@ class API_CALLS:
       english_text = json_data["articles"][0]
       
       return(english_text)
+
+  def get_dictionaryapi_word():
+    dictionaryapi_params = {
+      'key': os.getenv('DICTIONARYAPI_TOKEN')
+    }
+    
+    response = requests.get('https://dictionaryapi.com/api/v3/references/spanish/json/random?', params=dictionaryapi_params)
+    
+    json_data = json.loads(response.text)
+
+    word = {
+      "english": json_data[0]["meta"]["id"]
+    }
+    
+    return(word)
