@@ -1,4 +1,4 @@
-# spanishenglishexchange.com (bot)
+# spanishenglishexchange.com (bot) [unmantained] 
 
 spanishenglishexchange.com (bot) is a lovely bot to improve user experience on our discord server.
 
